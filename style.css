@@ -1,0 +1,238 @@
+body{
+    min-width: 240px;
+}
+
+body,button{
+    background-color: #F3F5FC;
+    font-family: 'Inter', sans-serif;
+}
+
+.header{
+    width: 100%;
+    padding: 1.5rem 1rem;
+}
+
+.main{
+    padding: 0 1rem 2.5rem 1rem;
+    min-height: calc(100vh - 10rem);
+}
+
+.textInputContainer{
+    margin-top: 3.5rem;
+}
+
+.textInput{
+    width: 100%;
+    height: 283px;
+    resize: none;
+    background-color: transparent;
+    border: none;
+    font-size: 2rem;
+    color: #0A3871;
+}
+
+.textInput::-webkit-input-placeholder, .textInput::placeholder{
+    color: #0A3871;
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 150%;
+    font-family: 'Inter', sans-serif;
+}
+
+.warning{
+    margin: 1rem 0;
+    display: flex;
+}
+
+.warningIcon{
+    margin-right: 0.5rem;
+}
+
+.warningMessage{
+    font-size: 0.75rem;
+    line-height: 150%;
+    color: #343A40;
+}
+
+.btn{
+    display: block;
+    width: 100%;
+    margin-bottom: 1.5rem;
+    border-radius: 24px;
+    border: none;
+    padding: 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.1s ease-in;
+}
+
+.btnFilled{
+    background-color: #0A3871;
+    color: #ffffff;
+}
+
+.btnFilled:hover{
+background-color: #072B61;
+}
+
+.btnBordered{
+    background-color: transparent;
+    border: 1px solid #0A3871;
+    border-color: #0A3871;
+    color: #0A3871;
+}
+
+.btnBordered:hover{
+background-color: #EFF1FA;
+}
+
+.textOutputContainer{
+width: 100%;
+margin-top: 4rem;
+background-color: #ffffff;
+padding: 2rem;
+border-radius: 32px;
+box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.08);
+}
+
+.textOutputImage{
+    display: none;
+}
+
+.textOutputContainer .title{
+font-size: 1.5rem;
+font-weight: 700;
+line-height: 120%;
+margin-bottom: 1rem;
+text-align: center;
+color: #343A40;
+}
+
+.textOutputContainer .message{
+line-height: 150%;
+color: #495057;
+text-align: center;
+}
+
+.textOutputContainer .result{
+color: #495057;
+line-height: 150%;
+font-size: 1.5rem;
+margin-bottom: 2rem;
+}
+
+.footer{
+    width: 100%;
+    height: 180px;
+    background-color: #0A3871;
+    padding: 1.5rem 1rem;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.footerHeading{
+    display: flex;
+    align-items: center;
+}
+
+.footerLogo{
+margin-right: 1rem;
+width: 70px;
+height: 70px;
+}
+
+.footerCopyright{
+    line-height: 130%;
+    font-size: 0.8rem;
+}
+
+.footerLink{
+    color: white;
+    cursor: pointer;
+}
+
+@media (min-width:785px) {
+
+    .header{
+        padding: 4.589rem 2.5rem 4.589rem 2.5rem;
+    }
+    
+    .main{
+        padding: 0 2.5rem 2.5rem 2.5rem;
+    }
+
+    .textInputContainer{
+        margin-top: 2.661rem;
+    }
+
+    .textInput{
+        height: 580px;
+    }
+
+    .btn{
+        display: inline-block;
+        max-width: 332px;
+        margin-bottom: 0;
+    }
+
+    .encryptBtn{
+        margin-right: 1.2rem;
+    }
+}
+
+@media (min-width:1440px) {
+    .header{
+        width: fit-content;
+        padding: 2.5rem;
+    }
+
+    .headerLogo{
+        margin-left: 44px;
+    }
+
+    .main{
+    width: 100%;
+    max-width: 1000px;
+    padding: 0 5rem 4rem 15rem;
+    }
+
+    .textInputContainer{
+        margin-top: 2.5rem;
+    }
+
+    .textInput{
+        max-width: 680px;
+        height: 63vh;
+    }
+
+    .btn{
+        max-width: 328px;
+    }
+
+    .encryptBtn{
+    margin-right: 1.2rem;
+    }
+
+    .textOutputContainer{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: absolute;
+        top: 0;
+        right: 40px;
+        height: calc(100vh - 80px);
+        width: 100%;
+        max-width: 400px;
+        margin-top: 2.5rem;
+        margin-bottom: 2.5rem;
+        padding: 0 2rem;
+    }
+
+    .textOutputImage{
+        display: block;
+        margin-bottom: 2rem;
+    }
+}
