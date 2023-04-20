@@ -71,13 +71,15 @@
           >
         </div>
         <div class="buttonsWrapper">
-          <button class="btn btnFilled encryptBtn">Criptografar</button>
-          <button class="btn btnBordered decryptBtn">Descriptografar</button>
+          <button class="btn btnFilled cryptographBtn">Criptografar</button>
+          <button class="btn btnBordered decryptBtn">
+            Descriptografar
+          </button>
         </div>
       </div>
 
       <div class="textOutputContainer">
-        <div class="textOutputContent">
+        <div class="textOutputContent" id="textOutputContent">
           <svg
             width="336"
             height="304"
@@ -626,16 +628,17 @@
             Digite um texto que você deseja criptografar ou descriptografar.
           </p>
         </div>
-        <!-- <div class="textOutputResult" style="display: none">
-          <p class="result">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Orci
-            montes, sit et diam risus scelerisque vitae est. Tortor maecenas
-            nunc ut laoreet. Eget diam mauris quam quisque ut eget fringilla sit
-            elit. Libero, sodales duis fames id diam feugiat aliquet non
-            egestas.
-          </p>
-          <button class="btn btnBordered copyBtn">Copiar</button>
-        </div> -->
+        <div
+          class="textOutputWrapper"
+          id="textOutputWrapper"
+          style="display: none"
+        >
+          <p class="textOutput" id="textOutput"></p>
+          <div class="copyWrapper">
+            <span class="copyAlert">Copiado</span>
+            <button class="btn btnBordered copyBtn">Copiar</button>
+          </div>
+        </div>
       </div>
     </main>
     <footer class="footer">
@@ -680,4 +683,3 @@
     <script src="app.js"></script>
   </body>
 </html>
-

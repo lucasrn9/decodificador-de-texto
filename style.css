@@ -86,6 +86,26 @@ background-color: #072B61;
 background-color: #EFF1FA;
 }
 
+.copyWrapper{
+    width: 100%;
+    position: relative;
+}
+
+.copyAlert{
+    font-size: 0.8rem;
+    position: absolute;
+    top: -10px;
+    right: 50%;
+    transform: translateX(50%) translateY(-100%);
+    color: white;
+    background-color: #072B61;
+    border-radius: 8px;
+    padding: 0.3rem 0.5rem;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.1s ease-out;
+}
+
 .textOutputContainer{
 width: 100%;
 margin-top: 4rem;
@@ -114,7 +134,7 @@ color: #495057;
 text-align: center;
 }
 
-.textOutputContainer .result{
+.textOutputContainer .textOutput{
 color: #495057;
 line-height: 150%;
 font-size: 1.5rem;
@@ -154,7 +174,7 @@ height: 70px;
     cursor: pointer;
 }
 
-@media (min-width:785px) {
+@media (min-width:768px) {
 
     .header{
         padding: 4.589rem 2.5rem 4.589rem 2.5rem;
@@ -178,8 +198,12 @@ height: 70px;
         margin-bottom: 0;
     }
 
-    .encryptBtn{
+    .cryptographBtn{
         margin-right: 1.2rem;
+    }
+
+    .copyBtn{
+        max-width: none;
     }
 }
 
@@ -212,7 +236,7 @@ height: 70px;
         max-width: 328px;
     }
 
-    .encryptBtn{
+    .cryptographBtn{
     margin-right: 1.2rem;
     }
 
