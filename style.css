@@ -29,6 +29,12 @@ body,button{
     border: none;
     font-size: 2rem;
     color: #0A3871;
+    scrollbar-width: thin;
+    scrollbar-color: #d3d4d65b transparent ;
+}
+
+.textInput:focus{
+    outline: none;
 }
 
 .textInput::-webkit-input-placeholder, .textInput::placeholder{
@@ -66,6 +72,10 @@ body,button{
     transition: background 0.1s ease-in;
 }
 
+.btn:focus{
+    outline: none;
+}
+
 .btnFilled{
     background-color: #0A3871;
     color: #ffffff;
@@ -87,15 +97,18 @@ background-color: #EFF1FA;
 }
 
 .copyWrapper{
+    display: flex;
+    justify-content: center;
     width: 100%;
     position: relative;
+    padding-right: 1.25rem;
 }
 
 .copyAlert{
     font-size: 0.8rem;
     position: absolute;
     top: -10px;
-    right: 50%;
+    right: calc(50% + 0.625rem);
     transform: translateX(50%) translateY(-100%);
     color: white;
     background-color: #072B61;
@@ -113,6 +126,11 @@ background-color: #ffffff;
 padding: 2rem;
 border-radius: 32px;
 box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.08);
+padding-right: 0.75rem;
+}
+
+.textOutputInitialContent{
+    margin-right: 1.25rem;
 }
 
 .textOutputImage{
@@ -135,10 +153,30 @@ text-align: center;
 }
 
 .textOutputContainer .textOutput{
+font-family: 'Inter', sans-serif;
 color: #495057;
 line-height: 150%;
 font-size: 1.5rem;
 margin-bottom: 2rem;
+height: 100%;
+max-height: 595px;
+overflow-y: scroll;
+scrollbar-width: thin;
+scrollbar-color: #d3d4d65b transparent ;
+padding-right: 1.25rem;
+height: fit-content;
+word-wrap: break-word;
+}
+
+.textOutputContainer .textOutput:focus{
+    outline: none;
+}
+
+.textOutputResults{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .footer{
@@ -174,6 +212,23 @@ height: 70px;
     cursor: pointer;
 }
 
+.textInput::-webkit-scrollbar,.textOutput::-webkit-scrollbar{
+    width: 8px;
+}
+
+.textInput::-webkit-scrollbar-track,.textOutput::-webkit-scrollbar-track{
+    background-color: transparent;
+}
+
+.textInput::-webkit-scrollbar-thumb,.textOutput::-webkit-scrollbar-thumb{
+    background: #d3d4d65b;
+    border-radius: 25px;
+}
+
+.textInput::-webkit-scrollbar-thumb:hover,.textOutput::-webkit-scrollbar-thumb:hover{
+    background: #c6c7c95b;
+}
+
 @media (min-width:768px) {
 
     .header{
@@ -192,14 +247,22 @@ height: 70px;
         height: 580px;
     }
 
+    .textOutputContainer .textOutput{
+        max-height: 343px;
+    }
+
     .btn{
         display: inline-block;
-        max-width: 332px;
+        max-width: 322px;
         margin-bottom: 0;
     }
 
+    .btn:focus{
+        outline: 2px solid black;
+    }
+
     .cryptographBtn{
-        margin-right: 1.2rem;
+        margin-right: 1.4rem;
     }
 
     .copyBtn{
@@ -248,15 +311,17 @@ height: 70px;
         top: 0;
         right: 40px;
         height: calc(100vh - 80px);
-        width: 100%;
         max-width: 400px;
         margin-top: 2.5rem;
         margin-bottom: 2.5rem;
-        padding: 0 2rem;
     }
 
     .textOutputImage{
         display: block;
         margin-bottom: 2rem;
+    }
+
+    .textOutputContainer .textOutput{
+        max-height: 825px;
     }
 }

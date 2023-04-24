@@ -1,5 +1,5 @@
 const validateText = (text) => {
-    const onlyNoSpecialCharWords = /^[a-zA-Z]+(?:\s+[a-zA-Z]+)*$/
+    const onlyNoSpecialCharWords = /^[a-zA-Z.,]+(?:\s+[a-zA-Z.,]+)*$/
     return onlyNoSpecialCharWords.test(text)
 }
 
@@ -24,7 +24,7 @@ const decrypt = (decryptDictionary, text, errorMsg) => {
         const dictionaryKeys = Object.keys(decryptDictionary)
         let decryptedText = text
         dictionaryKeys.forEach((key) => {
-            decryptedText = decryptedText.replaceAll(key, decryptDictionary[key])
+            decryptedText = decryptedText.replace(new RegExp(key, 'g'), decryptDictionary[key])
         })
         return { decryptedText: decryptedText }
     }
@@ -41,23 +41,23 @@ const revertObject = (originalObject) => {
 }
 
 const displayTextOutputResultsScreen = (resultText) => {
-    const textOutputWrapper = document.querySelector("#textOutputWrapper")
-    const textOutput = textOutputWrapper.querySelector("#textOutput")
-    const textOutputContent = document.querySelector("#textOutputContent")
-    textOutputContent.style.display = "none"
-    textOutputWrapper.style.display = "block"
+    const textOutputResults = document.querySelector("#textOutputResults")
+    const textOutput = textOutputResults.querySelector("#textOutput")
+    const textOutputInitialContent = document.querySelector("#textOutputInitialContent")
+    textOutputInitialContent.style.display = "none"
+    textOutputResults.style.display = "flex"
     textOutput.textContent = resultText
 }
 
 const displayTextOutputErrorScreen = (errorMsg) => {
-    const textOutputWrapper = document.querySelector("#textOutputWrapper")
-    const textOutputContent = document.querySelector("#textOutputContent")
-    const textOutputImage = textOutputContent.querySelector(".textOutputImage")
+    const textOutputResults = document.querySelector("#textOutputResults")
+    const textOutputInitialContent = document.querySelector("#textOutputInitialContent")
+    const textOutputImage = textOutputInitialContent.querySelector(".textOutputImage")
     textOutputImage.style.display = "none"
-    textOutputWrapper.style.display = "none"
-    textOutputContent.style.display = "block"
-    const textOutputTitle = textOutputContent.querySelector(".title")
-    const textOutputMessage = textOutputContent.querySelector(".message")
+    textOutputResults.style.display = "none"
+    textOutputInitialContent.style.display = "block"
+    const textOutputTitle = textOutputInitialContent.querySelector(".title")
+    const textOutputMessage = textOutputInitialContent.querySelector(".message")
     textOutputTitle.textContent = "Mensagem Inválida!"
     textOutputMessage.textContent = errorMsg
 }
@@ -84,7 +84,7 @@ const handleDecryptBtnClick = (decryptDictionary, errorMsg) => {
     }
 }
 
-const showCopyAlert = (msDisplayTime)=>{
+const showCopyAlert = (msDisplayTime) => {
     const copyAlert = document.querySelector(".copyAlert")
     copyAlert.style.visibility = "visible"
     copyAlert.style.opacity = "100"
@@ -97,7 +97,7 @@ const showCopyAlert = (msDisplayTime)=>{
 const handleCopyBtnClick = async () => {
     const textOutput = document.getElementById("textOutput")
     try {
-        await navigator.clipboard.writeText(textOutput.innerText);
+        await navigator.clipboard.writeText(textOutput.textContent);
     } catch (_) {
         // fallback to incompatible browsers
         const range = document.createRange();
